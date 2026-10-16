@@ -38,7 +38,7 @@ jobs:
       - name: Build Android APK
         run: |
           mv main1.py main.py
-          yes | flet build apk
+          echo "y" | flet build apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
