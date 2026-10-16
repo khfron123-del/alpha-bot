@@ -33,10 +33,13 @@ jobs:
           mv main1.py main.py
           script -q -c "flet build apk" /dev/null
 
+      - name: Find and Collect APK
+        run: |
+          mkdir -p extracted_apk
+          find . -name "*.apk" -exec cp {} extracted_apk/ \;
+
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Sajjaj-Pro-APK
-          path: |
-            build/**/*.apk
-            *.apk
+          path: extracted_apk/*.apk
