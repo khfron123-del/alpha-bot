@@ -38,5 +38,5 @@ jobs:
         with:
           name: Sajjaj-Pro-APK
           path: |
-            build/apk/*.apk
-            build/app/outputs/flutter-apk/*.apk
+            build/**/*.apk
+            *.apk
