@@ -16,12 +16,6 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
       - name: Install Flet and Dependencies
         run: |
           python -m pip install --upgrade pip
@@ -31,7 +25,7 @@ jobs:
       - name: Build Android APK
         run: |
           mv main1.py main.py
-          printf "y\n" | flet build apk
+          flet build apk --yes
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
